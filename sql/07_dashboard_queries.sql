@@ -78,22 +78,20 @@ FROM vw_category_sales;
 -- Customer Analysis
 -- View 1 — Customer Summary
 CREATE OR REPLACE VIEW vw_customer_summary AS
-
 SELECT
     o.customer_id,
     COUNT(DISTINCT o.order_id) AS total_orders,
     ROUND(SUM(p.payment_value), 2) AS total_revenue,
-    ROUND(AVG(p.payment_value), 2) AS average_order_value,
+    ROUND(
+        SUM(p.payment_value) / COUNT(DISTINCT o.order_id),
+        2
+    ) AS average_order_value,
     MIN(o.order_purchase_timestamp) AS first_purchase,
     MAX(o.order_purchase_timestamp) AS last_purchase
-
 FROM orders o
-
 JOIN payments p
     ON o.order_id = p.order_id
-
 WHERE o.order_status = 'delivered'
-
 GROUP BY o.customer_id;
 
 -- Test the View
