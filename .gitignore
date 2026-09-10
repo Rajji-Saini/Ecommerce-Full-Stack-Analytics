@@ -1,0 +1,52 @@
+# Python
+
+**pycache**/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Jupyter
+
+.ipynb_checkpoints/
+
+# Data files
+
+*.csv
+*.xlsx
+*.xls
+
+# Database files
+
+*.db
+*.sqlite
+*.sqlite3
+*.bak
+*.backup
+*.dump
+
+# Logs
+
+*.log
+
+# Operating system
+
+.DS_Store
+Thumbs.db
+
+# IDE
+
+.vscode/
+.idea/
+
+# Environment / secrets
+
+.env
+.env.*
+
+# Power BI temporary / backup files
+
+*.pbit
+~$*.pbix
